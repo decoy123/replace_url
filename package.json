@@ -1,0 +1,25 @@
+{
+  "name": "replace_url",
+  "version": "1.0.0",
+  "description": "Chrome Extension, replace URL.",
+  "main": "./src/gen/index.bundle.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.2.1"
+  },
+  "devDependencies": {
+    "@types/chrome": "0.0.44",
+    "@types/jquery": "^2.0.41",
+    "css-loader": "^0.28.0",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "file-loader": "^0.11.0",
+    "style-loader": "^0.16.1",
+    "ts-loader": "^2.0.3",
+    "typescript": "^2.2.2",
+    "webpack": "^2.2.0"
+  }
+}
