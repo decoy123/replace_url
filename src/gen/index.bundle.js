@@ -87,7 +87,7 @@ chrome.browserAction.onClicked.addListener(() => {
                 }
             }
             /* 置換後のURLにアクセス */
-            chrome.tabs.update({ url: newUrl });
+            chrome.tabs.create({ url: newUrl });
         });
     });
 });

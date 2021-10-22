@@ -14,7 +14,7 @@ chrome.browserAction.onClicked.addListener((): void => {
                 }
             }
             /* 置換後のURLにアクセス */
-            chrome.tabs.update(
+            chrome.tabs.create(
                 {url: newUrl}
             );
         });
