@@ -1,3 +1,9 @@
+# generated files
+src/gen
+
+# TypeScript
+d_ts
+
 # Logs
 logs
 *.log
