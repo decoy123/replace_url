@@ -1,25 +1,21 @@
 {
-	"manifest_version": 2,
+	"manifest_version": 3,
 	"name": "Replace URL",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "Replace URL in the address bar.",
-	"icons": {
-
-	},
+	"icons": {},
 	"permissions": [
-        "tabs", "storage"
-    ],
-	"browser_action": {
-		"default_icon": {
-
-        },
-        "default_title": "Replace URL"
+		"tabs",
+		"storage"
+	],
+	"action": {
+		"default_icon": {},
+		"default_title": "Replace URL"
 	},
-	"options_ui" :{
-		"page": "./src/self/html/options.html",
-		"chrome_style": true
+	"options_ui": {
+		"page": "./src/self/html/options.html"
 	},
 	"background": {
-		"scripts": ["./src/gen/index.bundle.js"]
+		"service_worker": "./src/gen/index.bundle.js"
 	}
 }
