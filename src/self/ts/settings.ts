@@ -36,7 +36,7 @@ export default class Settings {
 	/* storageから設定を復元 */
 	restorSettings(): void {
 		const settings: object[] = this.settings;
-		for (let i: number = 0; i < settings.length; i++){
+		for (let i: number = 0; i < settings.length; i++) {
 			/* 行を作成 */
 			this.createSettings();
 			/* 行に設定値を設定 */
@@ -56,16 +56,16 @@ export default class Settings {
 		$settingsRow.find('input[name="enabled"]').prop("checked", settings["enabled"]);
 	}
 
-    /* 行を削除 */
+	/* 行を削除 */
 	deleteSettings(ele: Element): void {
-        $(ele).closest("tr").remove();
+		$(ele).closest("tr").remove();
 	}
 
 	/* 設定を保存 */
 	saveSettings(): void {
 		let setSettings: object[] = [];
 		/* optionページから設定取得 */
-		$("#settings-body").children("tr").each(function(i: number, ele: Element): void {
+		$("#settings-body").children("tr").each(function (i: number, ele: Element): void {
 			const item: object = {
 				"before": $(ele).find('input[name="before"]').val(),
 				"after": $(ele).find('input[name="after"]').val(),
@@ -73,7 +73,7 @@ export default class Settings {
 			};
 			setSettings.push(item);
 		});
-		const setItems: object = {"settings": setSettings};
+		const setItems: object = { "settings": setSettings };
 		/* storageへ設定保存 */
 		chrome.storage.sync.set(setItems);
 	}
