@@ -1,13 +1,14 @@
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
+	mode: "production",
 	entry: {
-		index: "./src/self/ts/index.ts", 
+		index: "./src/self/ts/index.ts",
 		options: "./src/self/ts/options.ts",
 		options_style: "./src/self/ts/options_style.ts"
 	},
 	output: {
-		path: "./src/gen/",
+		path: __dirname + "/src/gen/",
 		filename: "[name].bundle.js"
 	},
 	resolve: {
@@ -17,23 +18,27 @@ module.exports = {
 		rules: [
 			{
 				test: /\.ts$/,
-				loader: "ts-loader"
+				use: [{ loader: "ts-loader" }]
 			},
 			{
 				test: /\.css$/,
-				use: ExtractTextPlugin.extract({
-					fallback: "style-loader",
-					use: "css-loader"
-				})
+				use: [MiniCssExtractPlugin.loader, "css-loader"]
 			},
 			{
 				test: /\.png$/,
-				loader: "file-loader?name=[name].[ext]"
+				use: [
+					{
+						loader: "file-loader",
+						options: {
+							name: "[name].[ext]"
+						}
+					}
+				]
 			}
 		]
 	},
 	plugins: [
-		new ExtractTextPlugin("[name].bundle.css")
+		new MiniCssExtractPlugin()
 	],
 	devtool: "source-map"
 };
